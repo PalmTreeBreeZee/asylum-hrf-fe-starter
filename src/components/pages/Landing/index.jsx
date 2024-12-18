@@ -1,10 +1,10 @@
-// import pieChart from '../../../assets/pie-chart.png';
-// import lineGraph from '../../../assets/line-graph.png';
-// import barGraph from '../../../assets/bar-graph.png';
+import pieChart from '../../../assets/pie-chart.png';
+import lineGraph from '../../../assets/line-graph.png';
+import barGraph from '../../../assets/bar-graph.png';
 // import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
-import {decodeBase64} from '../../../utils/decodeBase64.js';
+import { decodeBase64 } from '../../../utils/decodeBase64.js';
 
 /**
  * TODO: Ticket 1:
@@ -31,9 +31,22 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className='flex-c w-[100vw] secondary-c'>
-      Landing Page
-      <div>{'Type this into Canvas: ' + decodeBase64('VGltZTJDb2RlIQ==')}</div>
+    <div className='flex-c w-[100vw] secondary-c' class="flex justify-center ">
+      <div>
+        <img src={barGraph} alt='Bar Graph' class='size-96'></img>
+        <p>Search Grant Rates By Office</p>
+      </div>
+      <div>
+        <img src={pieChart} alt='Pie Chart' class='size-96'></img>
+        <p>Search Grant Rates By Office</p>
+      </div>
+      <div>
+        <img src={lineGraph} alt='Line Graph' class='size-96'></img>
+        <p>Search Grant Rates By Office</p>
+      </div>
+
+
     </div>
+
   );
 };
