@@ -34,13 +34,13 @@ export const LandingPage = () => {
   return (
     <body>
       <div class='flex-c w-[100vw] secondary-c'>
-        <section class="flex primary-c pt-4 pb-8">
+        <section class="flex primary-c pt-4 pb-8"> //This will be the Header section
           <div class="flex-c mx-auto">
             <h1 class="text-6xl mb-8 text-white">Asylum Office Grant Rate Tracker</h1>
             <h3 class="text-white">The Asylum Office Grant Rate Tracker provides asylum seekers, researchers, policymakers, and the public an interactive tool to explore USCIS data on Asylum Office decisions</h3>
           </div>
         </section>
-        <section class="graphs-section flex-c pt-10">
+        <section class="graphs-section flex-c pt-10"> //This will be the graphs section
           <div class="flex-c">
             <div class="flex justify-center m-14 gap-20 text-2xl">
               <div class="flex-c gap-3">
@@ -62,7 +62,7 @@ export const LandingPage = () => {
             </div>
           </div>
         </section>
-        <section class="middle-section flex">
+        <section class="middle-section flex"> //This will be the section for Human Rights
           <div class="flex-1 hrf-img-container content-center p-20">
             <img src={paperStack} alt='Paper Stack' class='hrf-img rounded-2xl h-[70%] w-[100%]'></img>
           </div>
@@ -70,7 +70,7 @@ export const LandingPage = () => {
             <p class="text-xl">Human Rights First has created a search tool to give you a user-friendly way to explore a data set of asylum decisions between FY 2016 and May 2021 by the USCIS Asylum Office, which we received through a Freedom of Information Act request. You can search for information on asylum grant rates by year, nationality, and asylum office, visualize the data with charts and heat maps, and download the data set.</p>
           </div>
         </section>
-        <section class="insights-section flex-c gap-16 ">
+        <section class="insights-section flex-c gap-16 "> //This will be the section for Statistics
           <div class="insights-section-header">
             <h3 class="text-5xl">Systemic Disparity Insights</h3>
           </div>
@@ -101,10 +101,10 @@ export const LandingPage = () => {
             </div>
           </div>
         </section>
-        <section class="read-more-section">
+        <section class="read-more-section"> //This will have the Read more button and navigate to the human rights page
           <button class="primary-c text-white px-4 py-2" onClick={handleReadMore}>Read More</button>
         </section>
-        <section class="back-to-top p-16">
+        <section class="back-to-top p-16"> //This will have the scroll back to the top functionality
           <button class="back-to-top font-medium" onClick={scrollToTop}>Back To Top ^</button>
         </section>
       </div>
