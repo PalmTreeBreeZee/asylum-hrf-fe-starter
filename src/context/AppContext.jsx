@@ -17,16 +17,27 @@ const useAppContextProvider = () => {
 
   useLocalStorage({ graphData, setGraphData });
 
-  const getFiscalData = () => {
-    // TODO: Replace this with functionality to retrieve the data from the fiscalSummary endpoint
-    const fiscalDataRes = testData;
-    return fiscalDataRes;
+  const getFiscalData = async () => {
+    // This is to retrieve the data from the fiscalSummary endpoint
+
+    try {
+      const res = await axios.get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalSummary');
+      return res.data
+    } catch (err) {
+      console.log(err);
+    }
+
   };
 
   const getCitizenshipResults = async () => {
-    // TODO: Replace this with functionality to retrieve the data from the citizenshipSummary endpoint
-    const citizenshipRes = testData.citizenshipResults;
-    return citizenshipRes;
+    // This is to retrieve the data from the citizenshipSummary endpoint
+
+    try {
+      const res = await axios.get('https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipSummary');
+      return res.data
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const updateQuery = async () => {
@@ -34,7 +45,47 @@ const useAppContextProvider = () => {
   };
 
   const fetchData = async () => {
-    // TODO: fetch all the required data and set it to the graphData state
+    //This is to fetch all the required data and set it to the graphData state
+    try {
+  
+    //I am going to have to combine the tack the citizenshipResults onto the fiscalData 
+     let mockCitizens = await getCitizenshipResults()
+     let fiscal = await getFiscalData()
+     let citizens = []
+     let i = 0
+  
+    //This is to make sure that I am grabbing all of the essencial categories  
+     mockCitizens.forEach(element => {
+        const {
+          adminClosed, 
+          asylumTerminated, 
+          citizenship,
+          closedNacaraGrant,
+          denied,
+          granted,
+          totalCases
+           } = element
+        
+         citizens[i] = {   
+          adminClosed, 
+          asylumTerminated, 
+          citizenship,
+          closedNacaraGrant,
+          denied,
+          granted,
+          totalCases}
+        i++
+     });
+   
+    //This is to combine my data and create a new category
+     const combinedData = {
+      ...fiscal, citizenshipResults: citizens
+    } 
+    setGraphData(combinedData)
+      
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const clearQuery = () => {

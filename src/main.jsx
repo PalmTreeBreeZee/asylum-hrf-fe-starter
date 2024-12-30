@@ -15,6 +15,6 @@ const AUTH_CLIENT_ID = import.meta.env.VITE_AUTH_CLIENT_ID;
  */
 createRoot(document.getElementById('root')).render(
     <ProvideAppContext>
-      <App />
+      <App/>
     </ProvideAppContext>
 );
