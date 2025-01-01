@@ -9,7 +9,7 @@
 import {useAuth0} from '@auth0/auth0-react'
 const Profile = () => {
   // TODO: Replace these with functionality from Auth0
- const {user, isLoading} = useAuth0()
+ const {user, isLoading, logout} = useAuth0()
 
   if (isLoading || !user) {
     return <div className='text-center p-4'>Loading...</div>;
@@ -21,6 +21,7 @@ const Profile = () => {
         <img src={user.picture} className='py-pw-24 h-24 rounded-full mx-auto mb-4x' alt={`${user.name}'s profile`} />
         <h2 className='text-gratext-2xl font-semibold mb-2y-600'>Name: {user.name}</h2>
         <p className='text-gray-600-px'>Email: {user.email}</p>
+        <button onClick={logout} className='mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition'>Logout</button>
         
         
       </div>
